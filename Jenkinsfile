@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'node:23-alpine' //docker image
+                    image 'node:18-alpine' //docker image
                     reuseNode true //reuses the same workspace for all stages
                 }
             }
@@ -13,7 +13,7 @@ pipeline {
                     ls -la
                     node --version
                     npm --version
-                    npm ci #run build
+                    npm ci
                     npm run build
                     ls -la
                 '''
